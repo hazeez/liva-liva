@@ -292,12 +292,12 @@
   blockquote {
     padding: 20px;
     background: $gray;
-    border-left: 3px solid $primary-color;
+    border-left: 4px solid $primary-color;
 
     p {
       margin-bottom: 0;
       color: $text-color-dark;
-      font-style: italic !important;
+      // font-style: italic !important;
     }
   }
 
