@@ -342,3 +342,8 @@ default   &-header,
     }
   }
 }
+
+
+.related-posts:nth-child(odd) {
+	border-right: 1px solid $border-color;
+}
