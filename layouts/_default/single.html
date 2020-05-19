@@ -27,10 +27,10 @@
 						<h4 class="mb-10">Tagged In</h4>
 						{{- if .Params.tags }}
 						{{- if not (eq (len .Params.tags) 0) }}
-						<ul class="list-inline">
+						<ul class="list-inline .tags">
 							{{- range $name, $items := .Params.tags }}
-							<li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-									href="{{ `tags/` | relLangURL }}{{ $items | urlize | lower }}">{{ $items | humanize }}</a></li>
+							<li class="list-inline-item"><a class="d-block tag"
+									href="{{ `tags/` | relLangURL }}{{ $items | urlize | lower }}">{{ $items | lower }}</a></li>
 							{{- end }}
 						</ul>
 						{{- end }}

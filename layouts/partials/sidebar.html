@@ -40,10 +40,10 @@
     <h4 class="widget-title">Tags</h4>
     {{- if isset .Site.Taxonomies "tags" }}
     {{- if not (eq (len .Site.Taxonomies.tags) 0) }}
-    <ul class="list-inline">
+    <ul class="list-inline .tags">
       {{- range $name, $items := .Site.Taxonomies.tags }}
-      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-          href="{{ `tags/` | relLangURL }}{{ $name | urlize | lower }}">{{ $name | humanize }}</a></li>
+      <li class="list-inline-item"><a class="d-block tag"
+          href="{{ `tags/` | relLangURL }}{{ $name | urlize | lower }}">{{ $name | lower }}</a></li>
       {{- end }}
     </ul>
     {{- end }}
