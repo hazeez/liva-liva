@@ -26,41 +26,38 @@ default   &-header,
 
   &-slider {
     @media screen and (min-width: 600px) {
-      .slick-dots {
-        position: absolute;
-        height: 100%;
-        right: 0;
-        top: 0;
-        display: flex;
-        flex-direction: column;
-
-        li {
-          flex: 1 1 auto;
-          position: relative;
-          list-style-type: none;
-
-          button {
-            position: absolute;
-            padding: 0;
-            border: 0;
-            background: $border-color;
-            color: transparent;
-            overflow: hidden;
-            width: 1px;
-            height: 100%;
-          }
-
-          &.slick-active {
-            button {
-              background: $primary-color;
-              width: 5px;
-              left: -2px;
-            }
-          }
-        }
-      }
-    }
-
+			.slick-dots {
+				display: flex;
+				justify-content: center;
+				
+				margin: 0;
+				padding: 1rem 0;
+				
+				list-style-type: none;
+				
+					li {
+						margin: 0 0.25rem;
+					}
+				
+					button {
+						display: block;
+						width: 1rem;
+						height: 1rem;
+						padding: 0;
+						
+						border: 1px solid $primary-color;
+						border-radius: 100%;
+						background-color: $gray;
+						
+						text-indent: -9999px;
+					}
+				
+					li.slick-active button {
+						background-color: $primary-color;
+					}
+				}
+			}
+		
     @media screen and (max-width: 599px) {
       .slick-dots {
         position: absolute;
@@ -105,7 +102,7 @@ default   &-header,
 .post-meta {
   span {
     color: #444;
-    font-weight: 500;
+    font-weight: 400;
   }
 }
 
@@ -163,13 +160,14 @@ default   &-header,
     a {
       height: 35px;
       width: 35px;
-      background: $primary-color;
-      color: $white;
+      // background: $primary-color;
+      // color: $white;
       display: block;
       line-height: 35px;
 
       &:hover {
-        color: $white;
+        color: $primary-color;
+        // color: $white;
       }
     }
   }
@@ -214,8 +212,8 @@ default   &-header,
 }
 
 .author-thumb-sm {
-  max-height: 165px;
-  max-width: 165px;
+  max-height: 150px;
+  max-width: 150px;
 }
 
 
@@ -244,17 +242,6 @@ default   &-header,
     li {
       position: relative;
       margin-bottom: 15px;
-      // list-style-type: none;
-
-        // position: absolute;
-      //   // content: "\e71b";
-      //   // font-family: $icon-font;
-      //   font-size: 14px;
-        left: 0;
-        top: 1px;
-      //   color: $primary-color;
-      //   transition: .3s ease;
-      // }
     }
   }
 
@@ -295,7 +282,7 @@ default   &-header,
     p {
       margin-bottom: 0;
       color: $text-color-dark;
-      // font-style: italic !important;
+			font-size: 1.2rem;
     }
   }
 
@@ -308,6 +295,7 @@ default   &-header,
       border: 0;
       background: transparent;
       padding: 0;
+			font-size: 1rem;
     }
   }
 

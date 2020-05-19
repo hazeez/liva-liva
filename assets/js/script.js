@@ -17,10 +17,13 @@
     // featured post slider
     $('.featured-post-slider').slick({
       infinite: true,
-      vertical: true,
+      horizontal: true,
       verticalSwiping: true,
       arrows: false,
       dots: true,
+			autoplay: true,
+			autoplaySpeed: 4000,
+			adaptiveHeight: true,
       responsive: [{
         breakpoint: 600,
         settings: {
