@@ -23,18 +23,23 @@
           {{ .Content }}
         </div>
 				<!-- Tags -->
-				<div class="widget">
-					<h4 class="widget-title">Tagged In</h4>
-					{{- if .Params.tags }}
-					{{- if not (eq (len .Params.tags) 0) }}
-					<ul class="list-inline">
-						{{- range $name, $items := .Params.tags }}
-						<li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-								href="{{ `tags/` | relLangURL }}{{ $items | urlize | lower }}">{{ $items | humanize }}</a></li>
+					<div class="widget-new mb-50">
+						<h5 class="mb-10">Tagged In</h5>
+						{{- if .Params.tags }}
+						{{- if not (eq (len .Params.tags) 0) }}
+						<ul class="list-inline">
+							{{- range $name, $items := .Params.tags }}
+							<li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+									href="{{ `tags/` | relLangURL }}{{ $items | urlize | lower }}">{{ $items | humanize }}</a></li>
+							{{- end }}
+						</ul>
 						{{- end }}
-					</ul>
-					{{- end }}
-					{{- end }}
+						{{- end }}
+					</div>
+
+				<!-- related -->
+				<div>
+				{{ partial "related.html" . }}
 				</div>
 
         <!-- comments -->

@@ -1,0 +1,20 @@
+
+<!-- related posts -->
+<section>
+		<h4>You may also like</h4>
+		<br/>
+    <div class="row">
+		{{ $related := (where .Site.Pages ".Params.type" "=" "featured") | intersect (where .Site.Pages ".Title" "!=" .Title) | union (.Site.RegularPages.Related .) | shuffle | first 4 }}
+		{{ with $related }}
+			{{ range $num, $name := . }}
+				<!-- {{ if ge $num 2 }} -->
+				<!-- 	<div class="row mt-5"></div> -->
+				<!-- {{ end }} -->
+				<div class="col-lg-6 mb-5">
+						{{ partial "related-sub.html" . }}
+				</div>
+			{{ end }}
+		{{ end }}
+    </div>
+</section>
+<!-- /recent post -->

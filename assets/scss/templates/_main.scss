@@ -3,7 +3,7 @@
   border: 0;
   border-radius: 0;
 
-  &-header,
+default   &-header,
   &-footer,
   &-img,
   &-img-top {
@@ -239,24 +239,22 @@
   }
 
   ul {
-    padding-left: 0;
+    padding-left: 20px;
 
     li {
       position: relative;
-      padding-left: 20px;
       margin-bottom: 15px;
-      list-style-type: none;
+      // list-style-type: none;
 
-      &::before {
-        position: absolute;
-        content: "\e71b";
-        font-family: $icon-font;
-        font-size: 14px;
+        // position: absolute;
+      //   // content: "\e71b";
+      //   // font-family: $icon-font;
+      //   font-size: 14px;
         left: 0;
         top: 1px;
-        color: $primary-color;
-        transition: .3s ease;
-      }
+      //   color: $primary-color;
+      //   transition: .3s ease;
+      // }
     }
   }
 
@@ -332,3 +330,27 @@
 }
 
 /* /markdown style */
+/* custom css */
+
+/* widget */
+.widget-new {
+  margin-bottom: 50px;
+
+  &-title {
+    display: inline-block;
+    padding: 10px 0;
+    margin-bottom: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
+
+    a {
+      color: $text-color;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
