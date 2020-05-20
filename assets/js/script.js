@@ -35,5 +35,5 @@
 
     // venobox initialize
     $('.venobox').venobox();
-
   })(jQuery);
+

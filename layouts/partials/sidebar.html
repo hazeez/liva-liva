@@ -2,7 +2,7 @@
   <!-- <!-1- about -1-> -->
   <!-- <div class="widget"> -->
   <!--   {{ with .Site.GetPage "/about" }} -->
-  <!--   <h4 class="widget-title">{{ .Title | markdownify }}</h4> -->
+  <!--   <h5 class="widget-title">{{ .Title | markdownify }}</h5> -->
   <!--   {{ if .Params.Image }} -->
   <!--   <img src="{{ .Params.Image | absURL }}" alt="" -->
   <!--     class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4"> -->
@@ -13,7 +13,7 @@
   <!-- </div> -->
   <!-- social -->
   <div class="widget">
-    <h4 class="widget-title">Social</h4>
+    <h5 class="widget-title">Social</h5>
     <ul class="list-inline social-links">
       {{ range .Site.Params.social }}
       <li class="list-inline-item"><a href="{{ .link | safeURL }}"><i class="{{ .icon }}"></i></a></li>
@@ -22,13 +22,13 @@
   </div>
    <!-- category -->
   <div class="widget">
-    <h4 class="widget-title">Category</h4>
+    <h5 class="widget-title">Category</h5>
     {{- if isset .Site.Taxonomies "categories" }}
     {{- if not (eq (len .Site.Taxonomies.categories) 0) }}
     <ul class="list-unstyled">
       {{- range $name, $items := .Site.Taxonomies.categories }}
       <li><a
-          href="{{ `categories/` | relLangURL }}{{ $name | urlize | lower }}">{{ $name | title | humanize }}</a>
+          href="{{ `categories/` | relLangURL }}{{ $name | urlize | lower }}">{{ $name | title | humanize | lower }}</a>
       </li>
       {{- end }}
     </ul>
@@ -37,7 +37,7 @@
   </div>
   <!-- Tags -->
   <div class="widget">
-    <h4 class="widget-title">Tags</h4>
+    <h5 class="widget-title">Tags</h5>
     {{- if isset .Site.Taxonomies "tags" }}
     {{- if not (eq (len .Site.Taxonomies.tags) 0) }}
     <ul class="list-inline .tags">

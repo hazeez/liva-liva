@@ -17,6 +17,8 @@ default   &-header,
 .featured-post {
   .card-title {
     margin-left: -10%;
+		font-weight: bold;
+		font-size: 2rem;
 
     @include tablet {
       margin-left: 0;
@@ -137,7 +139,7 @@ default   &-header,
 
   &-title {
     display: inline-block;
-    border-top: .5px solid $primary-color;
+    // border-top: .5px solid $primary-color;
     border-bottom: .5px solid $primary-color;
     padding: 10px 0;
     margin-bottom: 20px;
@@ -349,6 +351,10 @@ default   &-header,
 	border-right: 1px solid $border-color;
 }
 
+.related-posts:nth-child(even) {
+	padding-left: 2rem;
+}
+
 /* tag design */
 .tags {
   list-style: none;
@@ -405,4 +411,27 @@ a.d-block.tag:hover {
 
 a.d-block.tag:hover::after {
    border-left-color: $primary-color; 
+}
+
+/* changing the list styles */
+
+.widget-new > ul > li, p.card-text, a.nav-link {
+	font-size: 1rem;
+}
+
+p.card-text{
+	font-weight: 300;
+}
+
+.widget li, .social, .categories, .quick-links, .mobile, .location, .email {
+	font-size: 0.9rem;
+}
+
+footer {
+	background: $gray;
+}
+
+// for highlight js - code block
+.hljs {
+	margin-bottom: 0;
 }
