@@ -1,12 +1,12 @@
 {{ define "main" }}
-
 <section class="section-sm">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 mx-auto">
+      <!-- <div class="container"> -->
+      <div class="col-lg-8">
         {{ range .Params.Categories }}
         <a href="{{ "categories/" | relLangURL }}{{ . | urlize | lower }}"
-          class="text-primary">{{ . | title | humanize | lower }}</a>
+        class="text-primary">{{ . | title | humanize | lower }}</a>
         {{ end }}
         <h2>{{ .Title | markdownify }}</h2>
         <div class="mb-3 post-meta">
@@ -19,41 +19,48 @@
         {{ if .Params.image }}
         <img src="{{ .Params.Image | absURL }}" class="img-fluid w-auto mb-4" alt="{{ .Title | markdownify }}">
         {{ end }}
-        <div class="content mb-5">
-          {{ .Content }}
-        </div>
-				<!-- Tags -->
-					<div class="widget-new mb-50">
-						<h5 class="mb-10">Tagged in</h5>
-						{{- if .Params.tags }}
-						{{- if not (eq (len .Params.tags) 0) }}
-						<ul class="list-inline .tags">
-							{{- range $name, $items := .Params.tags }}
-							<li class="list-inline-item"><a class="d-block tag"
-									href="{{ `tags/` | relLangURL }}{{ $items | urlize | lower }}">{{ $items | lower }}</a></li>
-							{{- end }}
-						</ul>
-						{{- end }}
-						{{- end }}
-					</div>
-
-				<!-- related -->
-				<div>
-				{{ partial "related.html" . }}
-				</div>
-
-        <!-- comments -->
-        {{ template "_internal/disqus.html" . }}
-
-			  <!-- mathjax-->	
-				{{ partial "mathjax.html" . }}
       </div>
-
-      <!-- sidebar -->
-      {{ partial "sidebar.html" . }}
-      <!-- /sidebar -->
+      <!-- </div> -->
     </div>
+
+    <section class="section-sm">
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-lg-8">
+            <div class="content mb-5">
+              {{ .Content }}
+            </div>
+            <!-- Tags -->
+            <div class="widget-new mb-50">
+              <h5 class="mb-10">Tagged in</h5>
+              {{- if .Params.tags }}
+              {{- if not (eq (len .Params.tags) 0) }}
+              <ul class="list-inline .tags">
+                {{- range $name, $items := .Params.tags }}
+                <li class="list-inline-item"><a class="d-block tag"
+                href="{{ `tags/` | relLangURL }}{{ $items | urlize | lower }}">{{ $items | lower }}</a></li>
+                {{- end }}
+              </ul>
+              {{- end }}
+              {{- end }}
+            </div>
+            <!-- related -->
+            <div>
+              {{ partial "related.html" . }}
+            </div>
+            <!-- comments -->
+            {{ template "_internal/disqus.html" . }}
+            <!-- mathjax-->
+            {{ partial "mathjax.html" . }}
+          </div>
+          <!-- sidebar -->
+          {{ partial "sidebar.html" . }}
+          <!-- /sidebar -->
+          
+        </div>
+      </div>
+    </section>
   </div>
 </section>
-
 {{ end }}
