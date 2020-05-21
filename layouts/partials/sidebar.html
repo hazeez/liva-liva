@@ -1,4 +1,4 @@
-<div class="col-lg-4">
+<div class="col-lg-4 sidebar">
   <!-- <!-1- about -1-> -->
   <!-- <div class="widget"> -->
   <!--   {{ with .Site.GetPage "/about" }} -->
@@ -11,6 +11,16 @@
   <!--   <a href="{{ .Permalink }}" class="btn btn-outline-primary">Know More</a> -->
   <!--   {{ end }} -->
   <!-- </div> -->
+
+  <!-- <div id="toc" class="well col-md-4 col-sm-6">
+    {{ .TableOfContents }}
+  </div>
+ -->
+
+
+	<!-- funfact -->
+	{{ partial "funfact.html" . }}
+
   <!-- social -->
   <div class="widget">
     <h5 class="widget-title">Social</h5>
@@ -20,6 +30,7 @@
       {{ end }}
     </ul>
   </div>
+
    <!-- category -->
   <div class="widget">
     <h5 class="widget-title">Category</h5>
@@ -28,13 +39,14 @@
     <ul class="list-unstyled">
       {{- range $name, $items := .Site.Taxonomies.categories }}
       <li><a
-          href="{{ `categories/` | relLangURL }}{{ $name | urlize | lower }}">{{ $name | title | humanize | lower }}</a>
+          href="{{ `categories/` | relLangURL }}{{ $name | urlize | lower }}">{{ $name | title | humanize | upper }}</a>
       </li>
       {{- end }}
     </ul>
     {{- end }}
     {{- end }}
   </div>
+
   <!-- Tags -->
   <div class="widget">
     <h5 class="widget-title">Tags</h5>
@@ -49,6 +61,7 @@
     {{- end }}
     {{- end }}
   </div>
+
  <!-- advertisement -->
   <div class="widget">
     <img src="{{`images/promotion.png` | absURL}}" alt="" class="img-fluid">

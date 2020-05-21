@@ -3,27 +3,43 @@
   <div class="container">
     <div class="row">
       <!-- <div class="container"> -->
-      <div class="col-lg-8">
-        {{ range .Params.Categories }}
-        <a href="{{ "categories/" | relLangURL }}{{ . | urlize | lower }}"
-        class="text-primary">{{ . | title | humanize | lower }}</a>
-        {{ end }}
-        <h2>{{ .Title | markdownify }}</h2>
-        <div class="mb-3 post-meta">
-          <span>by {{ .Site.Params.Author }}</span>
-          {{ if not .Params.HideDate }}
-          <span class="border-bottom border-primary px-2 mx-1"></span>
-          <span>{{ .PublishDate.Format "02 January 2006" }}</span>
-          {{ end }}
+      <div class="col-lg-12 single-header-container">
+        <div class="row">
+          
+          <div class="col-lg-6">
+            {{ if .Params.image }}
+            <img src="{{ .Params.Image | absURL }}" class="img-fluid w-auto" alt="{{ .Title | markdownify }}">
+            {{ end }}
+          </div>
+          
+          <div class="col-lg-6">
+
+            <section class="section-sm">
+              <div>
+                {{ range .Params.Categories }}
+                <a href="{{ "categories/" | relLangURL }}{{ . | urlize | lower }}"
+                class="text-primary category-text-single">{{ . | title | humanize | upper }}</a>
+                {{ end }}
+              </div>
+
+              <h1 class="single-header-title">{{ .Title | markdownify }}</h1>
+
+              <div class="mb-3 post-meta">
+                <span>by {{ .Site.Params.Author }}</span>
+                {{ if not .Params.HideDate }}
+                <span class="border-bottom border-primary px-2 mx-1"></span>
+                <span>{{ .PublishDate.Format "02 January 2006" }}</span>
+                {{ end }}
+              </div>
+            </section>
+            
+          </div>
+          
         </div>
-        {{ if .Params.image }}
-        <img src="{{ .Params.Image | absURL }}" class="img-fluid w-auto mb-4" alt="{{ .Title | markdownify }}">
-        {{ end }}
       </div>
       <!-- </div> -->
     </div>
-
-    <section class="section-sm">
+    <section>
       <div class="container">
         <div class="row">
           
