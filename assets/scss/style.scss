@@ -24,11 +24,15 @@ VERSION:	Versoin Number
 @import 'templates/main.scss';
 
 // custom properties 
-.featured-container {
+.featured-container, .single-page-header-container {
 	margin-top: 30px;
 }
 
-.featured-section {
+.single-page-header-container {
+	margin-bottom: 20px;
+}
+
+.featured-section, .single-page-header-section {
 	padding-bottom: 10px !important;
 	background: $gray;
 	border-bottom: 0.5px solid $border-color;
@@ -41,4 +45,8 @@ VERSION:	Versoin Number
 
 .all-posts-section {
 	padding-top: 10px !important;
+}
+
+footer {
+	border-top: 0.5px solid $border-color;
 }
