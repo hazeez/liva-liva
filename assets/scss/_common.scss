@@ -53,6 +53,16 @@ a:hover {
   color: $primary-color;
 }
 
+p > a {
+  background: lighten($color: $primary-color, $amount: 45);
+	color: $text-color-dark !important;
+	text-decoration: underline;
+}
+
+p > a:hover {
+  background: lighten($color: $primary-color, $amount: 30);
+}
+
 .slick-slide {
   outline: 0;
 }
@@ -112,6 +122,7 @@ a:hover {
 
 .text-primary {
   color: $primary-color !important;
+  // color: $text-color-dark !important;
 }
 
 .text-dark {

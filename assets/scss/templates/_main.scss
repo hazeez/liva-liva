@@ -15,16 +15,20 @@ default   &-header,
 /* /card */
 
 .featured-post {
+		background: $gray;
+
   .card-title {
     margin-left: -10%;
-		font-weight: bold;
+		// font-weight: bold;
 		font-size: 2rem;
+		font-family: $secondary-font;
 
     @include tablet {
       margin-left: 0;
       font-size: 30px;
     }
   }
+
 
   &-slider {
     @media screen and (min-width: 600px) {
@@ -444,9 +448,10 @@ footer {
 }
 
 .category-text, .category-text-single {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.5px;
+	color: $secondary-color !important;
 }
 .category-text-single {
   font-size: 0.95rem;
@@ -462,7 +467,7 @@ footer {
 }
 
 .sidebar {
-  padding-left: 2rem;
+  padding-left: 3rem;
 }
 
 @media screen and (max-width: 599px) {
@@ -490,9 +495,27 @@ footer {
   }
 
 	.funfact-text{
+		font-family: $primary-font;
 		font-weight: 300;
 	}
 
 	h5.funfact-text{
 		margin-top: 0;
 	}
+
+	.btn-outline-primary{
+		border-color: $border-color;
+	}
+
+	.card-title:hover{
+		text-decoration: underline;
+	}
+
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none;
+}
+
+
