@@ -1,0 +1,80 @@
+<div class="col-lg-4 sidebar">
+  <!-- <!-1- about -1-> -->
+  <!-- <div class="widget"> -->
+  <!--   {{ with .Site.GetPage "/about" }} -->
+  <!--   <h5 class="widget-title">{{ .Title | markdownify }}</h5> -->
+  <!--   {{ if .Params.Image }} -->
+  <!--   <img src="{{ .Params.Image | absURL }}" alt="" -->
+  <!--     class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4"> -->
+  <!--   {{ end }} -->
+  <!--   <p>{{ .Summary }}</p> -->
+  <!--   <a href="{{ .Permalink }}" class="btn btn-outline-primary">Know More</a> -->
+  <!--   {{ end }} -->
+  <!-- </div> -->
+
+  <!-- <div id="toc" class="well col-md-4 col-sm-6">
+    {{ .TableOfContents }}
+  </div>
+ -->
+
+
+	<!-- funfact -->
+	{{ partial "funfact.html" . }}
+
+  <!-- social -->
+  <div class="widget">
+    <h5 class="widget-title">Social</h5>
+    <ul class="list-inline social-links">
+      {{ range .Site.Params.social }}
+      <li class="list-inline-item"><a href="{{ .link | safeURL }}"><i class="{{ .icon }}"></i></a></li>
+      {{ end }}
+    </ul>
+  </div>
+
+   <!-- category -->
+  <div class="widget">
+    <h5 class="widget-title">Category</h5>
+    {{- if isset .Site.Taxonomies "categories" }}
+    {{- if not (eq (len .Site.Taxonomies.categories) 0) }}
+    <ul class="list-unstyled">
+      {{- range $name, $items := .Site.Taxonomies.categories }}
+      <li><a
+          href="{{ `categories/` | relLangURL }}{{ $name | urlize | lower }}">{{ $name | title | humanize | upper }}</a>
+      </li>
+      {{- end }}
+    </ul>
+    {{- end }}
+    {{- end }}
+  </div>
+
+  <!-- Tags -->
+  <div class="widget">
+    <h5 class="widget-title">Tags</h5>
+    {{- if isset .Site.Taxonomies "tags" }}
+    {{- if not (eq (len .Site.Taxonomies.tags) 0) }}
+    <ul class="list-inline .tags">
+      {{- range $name, $items := .Site.Taxonomies.tags }}
+      <li class="list-inline-item"><a class="d-block tag"
+          href="{{ `tags/` | relLangURL }}{{ $name | urlize | lower }}">{{ $name | lower }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+    {{- end }}
+  </div>
+
+	<!-- Latest articles -->
+	
+		<div class="widget">
+			<h5 class="widget-title">Latest Articles</h5>
+				<div class="row">
+					{{ range first 3 (where .Site.RegularPages "Type" "post")}}
+            <a href="{{ .Permalink }}" class="h6 d-block mb-3">{{ .Title | markdownify }}</a>
+					{{ end }}
+				</div>
+		</div>
+
+ <!-- advertisement -->
+  <div class="widget">
+    <img src="{{`images/promotion.png` | absURL}}" alt="" class="img-fluid">
+  </div>
+</div>
