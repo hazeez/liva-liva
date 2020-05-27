@@ -1,80 +1,67 @@
-
 {{ define "main" }}
-
-
 <section class="section-sm single-page-header-section">
-        <div class="container single-page-header-container">
-					<div class="row">
-          <div class="col-lg-6">
-            {{ if .Params.image }}
-            <img src="{{ .Params.Image | absURL }}" class="img-fluid w-auto" alt="{{ .Title | markdownify }}">
-            {{ end }}
-          </div>
-          
-          <div class="col-lg-6">
-            <section class="section-sm">
-              <div>
+    <div class="container">
+        <section class="section-sm single-header-section col-lg-11 ">
+            <div>
                 {{ range .Params.Categories }}
-                <a href="{{ "categories/" | relLangURL }}{{ . | urlize | lower }}"
-                class="text-primary category-text-single">{{ . | title | humanize | upper }}</a>
-                {{ end }}
-              </div>
+                <a href="{{ " categories/ " | relLangURL }}{{ . | urlize | lower }}" class="text-primary category-text-single">{{ . | title | humanize | upper }}</a>
+								{{ end }}
+            </div>
+						<div class="post-meta">
+								<span>by {{ .Site.Params.Author }}</span> 
+								{{ if not .Params.HideDate }}
+								<span class="border-bottom border-primary px-2 mx-1"></span>
+								<span>{{ .PublishDate.Format "02 January 2006" }}</span>
+								{{ end }}
+						</div>
+            <h1 class="single-header-title">{{ .Title | markdownify }}</h1>
+        </section>
+    </div>
 
-              <h1 class="single-header-title">{{ .Title | markdownify }}</h1>
-
-              <div class="mb-3 post-meta">
-                <span>by {{ .Site.Params.Author }}</span>
-                {{ if not .Params.HideDate }}
-                <span class="border-bottom border-primary px-2 mx-1"></span>
-                <span>{{ .PublishDate.Format "02 January 2006" }}</span>
-                {{ end }}
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
+		<div class="img-container d-block">
+				{{ if .Params.image }}
+				<img src="{{ .Params.Image | absURL }}" class="img-fluid w-auto" alt="{{ .Title | markdownify }}">                        
+				{{ end }}
+		</div>
 </section>
 
-    <section>
-      <div class="container">
+<section>
+    <div class="container">
         <div class="row">
-          
-          <div class="col-lg-8">
-            <div class="content mb-5">
-              {{ .Content }}
+
+            <div class="col-lg-8">
+							<div class="container">
+                <div class="content mb-5">
+                    {{ .Content }}
+                </div>
+							</div>
+                <!-- Tags -->
+                <div class="widget-new mb-50">
+                    <h5 class="mb-10">Tagged in</h5>
+                    {{- if .Params.tags }} {{- if not (eq (len .Params.tags) 0) }}
+                    <ul class="list-inline .tags">
+                        {{- range $name, $items := .Params.tags }}
+                        <li class="list-inline-item"><a class="d-block tag-single" href="{{ `tags/` | relLangURL }}{{ $items | urlize | lower }}">{{ $items | lower }}</a></li>
+                        {{- end }}
+                    </ul>
+                    {{- end }} {{- end }}
+                </div>
+                <!-- related -->
+                <div>
+                    {{ partial "related.html" . }}
+                </div>
+                <!-- comments -->
+                {{ template "_internal/disqus.html" . }}
+                <!-- mathjax-->
+                {{ partial "mathjax.html" . }}
             </div>
-            <!-- Tags -->
-            <div class="widget-new mb-50">
-              <h5 class="mb-10">Tagged in</h5>
-              {{- if .Params.tags }}
-              {{- if not (eq (len .Params.tags) 0) }}
-              <ul class="list-inline .tags">
-                {{- range $name, $items := .Params.tags }}
-                <li class="list-inline-item"><a class="d-block tag-single"
-                href="{{ `tags/` | relLangURL }}{{ $items | urlize | lower }}">{{ $items | lower }}</a></li>
-                {{- end }}
-              </ul>
-              {{- end }}
-              {{- end }}
-            </div>
-            <!-- related -->
-            <div>
-              {{ partial "related.html" . }}
-            </div>
-            <!-- comments -->
-            {{ template "_internal/disqus.html" . }}
-            <!-- mathjax-->
-            {{ partial "mathjax.html" . }}
-          </div>
-          <!-- sidebar -->
-          {{ partial "sidebar-single.html" . }}
-          <!-- /sidebar -->
-          
+            <!-- sidebar -->
+            {{ partial "sidebar-single.html" . }}
+            <!-- /sidebar -->
+
         </div>
-      </div>
-    </section>
-  </div>
+    </div>
+</section>
+</div>
 
-<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button"><i class="ti-angle-up"></i></a>
-
-{{ end }}
+<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button"><i class="ti-angle-up"></i></a>{{ end }}

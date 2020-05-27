@@ -24,18 +24,34 @@ VERSION:	Versoin Number
 @import 'templates/main.scss';
 
 // custom properties 
-.featured-container, .single-page-header-container {
+// $container-max-widths: (
+//   md: 720px,
+//   lg: 960px,
+//   xl: 1140px
+// );
+
+.featured-container, .img-container {
 	margin-top: 30px;
 }
 
-.single-page-header-container {
+.img-container {
 	margin-bottom: 20px;
+	text-align: center;
 }
 
-.featured-section, .single-page-header-section {
+p > img {
+	width: 100%;
+}
+
+// .featured-section, .single-page-header-section {
+.featured-section{
 	padding-bottom: 10px !important;
-	background: $gray;
+	// background: $gray;
 	border-bottom: 0.5px solid $border-color;
+}
+
+.single-page-header-section{
+	padding-bottom: 10px !important;
 }
 
 .recent-section{
@@ -54,4 +70,8 @@ footer {
 .content pre, code {
 	border: 1px solid #dee2e6;
 	border-radius: 3px;
+}
+
+.single-header-section {
+	padding-bottom: 0px;
 }
