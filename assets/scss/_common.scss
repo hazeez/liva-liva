@@ -212,10 +212,26 @@ textarea.form-control{
 }
 
 a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover{
-  background: $primary-color !important;
+  background: $secondary-color !important;
 }
 
 /*custom properties*/
 /*.row {
   width: fit-content;
 }*/
+
+.ml-10 {
+  margin-left: 10px !important;
+}
+
+.ml-20 {
+  margin-left: 20px !important;
+}
+
+.mr-10 {
+  margin-right: 10px !important;
+}
+
+.mr-20{
+  margin-right: 20px !important;
+}
