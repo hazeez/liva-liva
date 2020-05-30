@@ -20,7 +20,11 @@
 
 		<div class="img-container d-block">
 				{{ if .Params.image }}
-				<img src="{{ .Params.Image | absURL }}" class="img-fluid w-auto" alt="{{ .Title | markdownify }}">                        
+					<img src="{{ .Params.Image | absURL }}" class="img-fluid w-auto" alt="{{ .Title | markdownify }}">                        
+				{{ end }}
+
+				{{ if .Params.image_credit }}
+					<div class="image-credit">{{ .Params.image_credit }}</div>
 				{{ end }}
 		</div>
 </section>
