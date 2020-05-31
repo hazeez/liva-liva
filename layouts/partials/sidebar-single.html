@@ -78,13 +78,12 @@
 					<div class="row">
 						<div class="container">
 							{{ range first 4 (where .Site.RegularPages "Type" "post")}}
-								<div class="mb-3 post-meta">
+								<div class="latest-articles-list mb-3 post-meta">
                   {{ if not .Params.HideDate }}
                   <span style="font-size: 0.8rem;">{{ .PublishDate.Format "02 January 2006" }}</span>
 									<a href="{{ .Permalink }}" class="h6 d-block mb-3">{{ .Title | markdownify }}</a>
                   {{ end }}
                 </div>
-								<hr/>
 							{{ end }}
 						</div>
 					</div>

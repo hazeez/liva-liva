@@ -30,6 +30,25 @@ type: "post"
 ##### Heading 5
 ###### Heading 6
 
+---
+### Code block shortcode
+
+{{<codeblock file1.py>}}
+	{{<highlightjs python "linenos=true"}}
+	from flask import Flask, render_template, jsonify
+	from flask_socketio import SocketIO, emit
+	import json
+
+	app = Flask(__name__)
+	socketio = SocketIO(app)
+	app.config['SECRET_KEY'] = '!secret'
+
+	# List all the unique users in the chat
+	list_chat_users = []
+	{{</highlightjs>}}
+{{</codeblock>}}
+---
+
 <hr>
 
 ##### Emphasis
