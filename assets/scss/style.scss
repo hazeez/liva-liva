@@ -267,7 +267,9 @@ footer {
 }
 
 p > img {
-	width: 100%;
+	max-width: 100%;
+	margin-left: auto;
+	// width: auto !important;
 }
 
 .featured-section{
@@ -313,10 +315,10 @@ $box-width: 100px;
   position: absolute;
   width: $box-width;
   padding-left: ($box-width / 2);
-  top: 20%;
+  top: 40%;
   left: 50%;
   margin-left: -($box-width / 2);
-	margin-top: $box-width + $button-height;
+	// margin-top: $box-width + $button-height;
   
   .share-button {
     float: left;
@@ -335,7 +337,7 @@ $box-width: 100px;
   height: $button-height;
   // border-radius: ($button-height / 2);
   left: 0;
-  top: 50%;
+  // top: 50%;
   // margin-top: -($button-height / 2);
 
   &:hover {
@@ -361,7 +363,7 @@ $box-width: 100px;
 
 @media (min-width: 1800px) {
     .container{
-        max-width: 1570px;
+        max-width: 1470px;
     }
 }
 
@@ -449,3 +451,7 @@ div.chroma {
 	padding-left: 0px !important;
 }
 
+.latest-articles {
+	position: absolute;
+	top: 2%;
+}

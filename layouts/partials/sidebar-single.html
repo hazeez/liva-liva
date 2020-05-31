@@ -62,17 +62,6 @@
     {{- end }}
   </div>
 
-	<!-- Latest articles -->
-	
-		<div class="widget">
-			<h5 class="widget-title">Latest Articles</h5>
-				<div class="row">
-					{{ range first 3 (where .Site.RegularPages "Type" "post")}}
-            <a href="{{ .Permalink }}" class="h6 d-block mb-3">{{ .Title | markdownify }}</a>
-					{{ end }}
-				</div>
-		</div>
-
  <!-- advertisement -->
   <div class="widget">
     <img src="{{`images/promotion.png` | absURL}}" alt="" class="img-fluid">
@@ -80,5 +69,26 @@
 
 	<!-- affiliate policy -->
 	{{ partial "disclaimer.html" . }}
+
+	<!-- Latest articles -->
+	
+		<!-- <div class="widget"> -->
+			<div class="latest-articles position-sticky">
+				<h5 class="widget-title">Latest Articles</h5>
+					<div class="row">
+						<div class="container">
+							{{ range first 4 (where .Site.RegularPages "Type" "post")}}
+								<div class="mb-3 post-meta">
+                  {{ if not .Params.HideDate }}
+                  <span style="font-size: 0.8rem;">{{ .PublishDate.Format "02 January 2006" }}</span>
+									<a href="{{ .Permalink }}" class="h6 d-block mb-3">{{ .Title | markdownify }}</a>
+                  {{ end }}
+                </div>
+								<hr/>
+							{{ end }}
+						</div>
+					</div>
+			</div>
+		<!-- </div> -->
 
 </div>
