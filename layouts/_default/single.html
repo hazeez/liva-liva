@@ -3,8 +3,8 @@
     <div class="container">
         <section class="section-sm single-header-section col-lg-11 ">
             <div>
-                {{ range .Params.Categories }}
-                <a href="{{ " categories/ " | relLangURL }}{{ . | urlize | lower }}" class="text-primary category-text-single">{{ . | title | humanize | upper }}</a>
+                {{ range .Params.categories }}
+                <a href="{{ "categories/" | relLangURL }}{{ . | urlize | lower }}" class="text-primary category-text-single">{{ . | title | humanize | upper }}</a>
 								{{ end }}
             </div>
 						<div class="post-meta">

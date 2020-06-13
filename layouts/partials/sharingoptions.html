@@ -1,11 +1,29 @@
 <div id="share-options-bar" class="share-buttons position-sticky">
+		{{ $title := .Params.title }}
+
     {{ range .Site.Params.sharingOptions }}
-      <div class="share-button">
-        <a class="share-option-btn fb-xfbml-parse-ignore" target="new" href="{{ printf .url (substr (querify "x" $.Permalink) 2)}}">
-         <i class="{{ .icon }} share-button-icon"></i>
-					<!-- <span>{{ printf (i18n "global.share_on") .name }}</span> -->
-        </a>
-      </div>
+
+			{{ $url1 := printf .url (substr (querify "x" $.Permalink) 2) }}
+			{{ $body := print $title ", by " .Site.Title "\n" .Params.description "\n\n" $url1 "\n" }}
+			{{ $url2 := (print $url1 "&title=" $title "&summary=" $title ) }}
+					
+			{{ if eq .name "linkedin" }}
+
+				<div class="share-button">
+					<a class="share-option-btn fb-xfbml-parse-ignore" target="new" href="{{ $url2 }}">
+					 <i class="{{ .icon }} share-button-icon"></i>
+					</a>
+				</div>
+
+			{{ else }}
+
+				<div class="share-button">
+					<a class="share-option-btn fb-xfbml-parse-ignore" target="new" href="{{ printf .url (substr (querify "x" $.Permalink) 2)}}">
+					 <i class="{{ .icon }} share-button-icon"></i>
+					</a>
+				</div>
+			{{ end }}
+
     {{ end }}
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
