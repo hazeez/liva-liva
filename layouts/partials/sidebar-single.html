@@ -2,7 +2,7 @@
   <!-- <!-1- about -1-> -->
   <!-- <div class="widget"> -->
   <!--   {{ with .Site.GetPage "/about" }} -->
-  <!--   <h5 class="widget-title">{{ .Title | markdownify }}</h5> -->
+  <!--   <h6 class="widget-title">{{ .Title | markdownify }}</h6> -->
   <!--   {{ if .Params.Image }} -->
   <!--   <img src="{{ .Params.Image | absURL }}" alt="" -->
   <!--     class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4"> -->
@@ -23,7 +23,7 @@
 
   <!-- social -->
   <div class="widget">
-    <h5 class="widget-title">Social</h5>
+    <h6 class="widget-title">Social</h6>
     <ul class="list-inline social-links">
       {{ range .Site.Params.social }}
       <li class="list-inline-item"><a href="{{ .link | safeURL }}"><i class="{{ .icon }}"></i></a></li>
@@ -33,7 +33,7 @@
 
    <!-- category -->
   <div class="widget">
-    <h5 class="widget-title">Category</h5>
+    <h6 class="widget-title">Category</h6>
     {{- if isset .Site.Taxonomies "categories" }}
     {{- if not (eq (len .Site.Taxonomies.categories) 0) }}
     <ul class="list-unstyled">
@@ -49,7 +49,7 @@
 
   <!-- Tags -->
   <div class="widget">
-    <h5 class="widget-title">Tags</h5>
+    <h6 class="widget-title">Tags</h6>
     {{- if isset .Site.Taxonomies "tags" }}
     {{- if not (eq (len .Site.Taxonomies.tags) 0) }}
     <ul class="list-inline .tags">
@@ -63,18 +63,18 @@
   </div>
 
  <!-- advertisement -->
-  <div class="widget">
-    <img src="{{`images/promotion.png` | absURL}}" alt="" class="img-fluid">
-  </div>
+  <!-- <div class="widget"> -->
+  <!--   <img src="{{`images/promotion.png` | absURL}}" alt="" class="img-fluid"> -->
+  <!-- </div> -->
 
 	<!-- affiliate policy -->
-	{{ partial "disclaimer.html" . }}
+	<!-- {{ partial "disclaimer.html" . }} -->
 
 	<!-- Latest articles -->
 	
 		<!-- <div class="widget"> -->
 			<div class="latest-articles position-sticky">
-				<h5 class="widget-title">Latest Articles</h5>
+				<h6 class="widget-title">Latest Articles</h6>
 					<div class="row">
 						<div class="container">
 							{{ range first 4 (where .Site.RegularPages "Type" "post")}}

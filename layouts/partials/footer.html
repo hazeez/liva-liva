@@ -6,9 +6,14 @@
         <h2>{{ .Site.Params.newsletter.title | markdownify }}</h2>
         <p class="text-light px-md-5 py-4 border-left border-right border-primary">
           {{ .Site.Params.newsletter.content | markdownify }}</p>
-        <form action="#" class="row justify-content-center">
-          <div class="input-group col-md-8">
-            <input type="text" class="form-control" placeholder="Your Email Address">
+					<form
+						action="https://datasciencia.us18.list-manage.com/subscribe/post?u=09dda483bd97188b548fde070&amp;id=0a2be148f8"
+						method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate row
+						justify-content-center" target="_blank" novalidate>
+						<div class="input-group col-md-8">
+            <input type="email" name="EMAIL" class="required email form-control" id="subscriber-email" placeholder="Your Email Address">
+						<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+								<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_09dda483bd97188b548fde070_0a2be148f8" tabindex="-1" value=""></div>
             <div class="input-group-append">
               <button class="input-group-text btn btn-primary">Subscribe</button>
             </div>
@@ -26,7 +31,7 @@
 
     <div class="row">
       <div class="col-lg-3 col-sm-6 mb-5">
-        <h5 class="mb-4">Contact Me</h5>
+        <h6 class="mb-4">Contact Me</h6>
         <ul class="list-unstyled">
           <!-- <li class="mb-3 mobile"><a class="text-dark" href="tel:{{ .Site.Params.mobile }}"><i -->
                 <!-- class="ti-mobile mr-3 text-primary"></i>{{ .Site.Params.mobile }}</a></li> -->
@@ -37,7 +42,7 @@
         </ul>
       </div>
       <div class="col-lg-3 col-sm-6 mb-5">
-        <h5 class="mb-4">Social Contacts</h5>
+        <h6 class="mb-4">Social Contacts</h6>
         <ul class="list-unstyled">
           {{ range .Site.Params.social }}
           <li class="mb-3 social"><a class="text-dark" href="{{ .link | safeURL }}">{{ .title }}</a></li>
@@ -45,7 +50,7 @@
         </ul>
       </div>
       <div class="col-lg-3 col-sm-6 mb-5">
-        <h5 class="mb-4">Categories</h5>
+        <h6 class="mb-4">Categories</h6>
         {{- if isset .Site.Taxonomies "categories" }}
         {{- if not (eq (len .Site.Taxonomies.categories) 0) }}
         <ul class="list-unstyled">
@@ -59,7 +64,7 @@
         {{- end }}
       </div>
       <div class="col-lg-3 col-sm-6 mb-5">
-        <h5 class="mb-4">Quick Links</h5>
+        <h6 class="mb-4">Quick Links</h6>
         <ul class="list-unstyled">
           {{ range .Site.Menus.footer }}
           <li class="mb-3 quick-links"><a class="text-dark" href="{{ .URL | absURL }}">{{ .Name }}</a></li>
@@ -105,3 +110,24 @@
 </script>
 
 <script>hljs.initHighlightingOnLoad();</script>
+
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+
+<script>
+function ValidateEmail(email) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+  {
+    alert("You have been subscribed!");
+    return (true)
+  }
+    alert("You have entered an invalid email address!")
+    return (false)
+}
+$(document).ready(function(){
+  $("#mc-embedded-subscribe-form").submit(function(){
+		var email = $("#subscriber-email").val();
+		ValidateEmail(email);
+  });
+});
+</script>

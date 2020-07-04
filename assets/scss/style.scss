@@ -313,6 +313,7 @@ $box-width: 100px;
 
 .share-buttons {
   position: absolute;
+	position: sticky !important;
   width: $box-width;
   padding-left: ($box-width / 2);
   top: 40%;
@@ -321,10 +322,9 @@ $box-width: 100px;
 	// margin-top: $box-width + $button-height;
   
   .share-button {
-    float: left;
+    float: right;
     margin-top: 20px;
 		text-align: center;
-    
   }
 }
 
@@ -352,18 +352,18 @@ $box-width: 100px;
   position: absolute;
   width: $button-height;
   line-height: $button-height;
-  font-size: 20px;
+	font-size: 1rem;
 }
 
 @media (max-width: 1700px) {
     .container{
-        max-width: 1310px;
+        max-width: 1210px;
     }
 }
 
 @media (min-width: 1800px) {
     .container{
-        max-width: 1470px;
+        max-width: 1370px;
     }
 }
 
@@ -496,4 +496,58 @@ figcaption {
 
 figcaption > p {
 	font-size: 0.8rem;
+}
+
+.image-featured{
+	height: 6rem;
+	width: 6rem;
+}
+
+.image-featured-div {
+	text-align: right;
+}
+
+.featured-meta {
+	margin-top: auto;
+}
+
+.div-featured{
+	padding-left: 0px;
+}
+
+.recent-post-thumb {
+	border-radius: 0px;
+	height: 75px;
+	width: 75px;
+}
+
+.related-post-thumb {
+	height: 85px;
+	width: 85px;
+}
+
+
+@media (max-width: 599px) {
+
+.share-buttons {
+		float: right;
+		position: relative;
+		display: inline !important;
+		padding-left: 0px;
+		margin-bottom: 20px;
+		margin-top: -20px;
+  
+  .share-button {
+		// position: relative !important;
+		// display: inline !important;
+  }
+}
+
+.share-button-icon {
+  position: relative;
+	display: inline !important;
+	font-size: 0.9rem;
+}
+
+
 }
