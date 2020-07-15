@@ -15,26 +15,26 @@
     });
 
     // featured post slider
-    $('.featured-post-slider').slick({
-      infinite: true,
-      horizontal: true,
-      verticalSwiping: true,
-      arrows: false,
-      dots: true,
-			autoplay: true,
-			autoplaySpeed: 4000,
-			// adaptiveHeight: true,
-      responsive: [{
-        breakpoint: 600,
-        settings: {
-          vertical: false,
-          verticalSwiping: false,
-        }
-      }]
-    });
+    // $('.featured-post-slider').slick({
+    //   infinite: true,
+    //   horizontal: true,
+    //   verticalSwiping: true,
+    //   arrows: false,
+    //   dots: true,
+			// autoplay: true,
+			// autoplaySpeed: 4000,
+			// // adaptiveHeight: true,
+    //   responsive: [{
+    //     breakpoint: 600,
+    //     settings: {
+    //       vertical: false,
+    //       verticalSwiping: false,
+    //     }
+    //   }]
+    // });
 
-    // venobox initialize
-    $('.venobox').venobox();
+    // // venobox initialize
+    // $('.venobox').venobox();
 
   })(jQuery);
 
