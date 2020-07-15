@@ -4,7 +4,7 @@
 		<h5>You may also like ...</h5>
 		<br/>
     <div class="row">
-		{{ $related := (where .Site.Pages ".Params.type" "=" "featured") | intersect (where .Site.Pages ".Title" "!=" .Title) | union (.Site.RegularPages.Related .) | shuffle | first 4 }}
+		{{ $related := (where .Site.Pages ".Params.type" "=" "featured") | intersect (where .Site.Pages ".Title" "!=" .Title) | union (.Site.RegularPages.Related .) | union (where .Site.Pages ".Params.type" "=" "post") | intersect (where .Site.Pages ".Title" "!=" .Title)| shuffle | first 4 }}
 		{{ with $related }}
 			{{ range $num, $name := . }}
 				<!-- {{ if ge $num 2 }} -->

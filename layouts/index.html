@@ -10,9 +10,14 @@
           {{ range $paginator.Pages }}
           <div class="col-md-6 mb-4">
             <article class="card">
-              {{ if .Params.Image }}
-              <img src="{{ .Params.Image | absURL }}" class="card-img-top" alt="{{ .Title | markdownify }}">
-              {{ end }}
+              <!-- {{ if .Params.Image }} -->
+              <!-- <img src="{{ .Params.Image | absURL }}" class="card-img-top" alt="{{ .Title | markdownify }}"> -->
+              <!-- {{ end }} -->
+              {{ if .Params.Thumbnail }}
+								<a href="{{ .Permalink }}">
+								<img src="{{ .Params.Thumbnail | absURL }}" class="card-img-top" alt="{{ .Params.Alt | markdownify }}">
+								</a>
+							{{ end }}
               <div class="card-body px-0">
                 {{ range .Params.Categories }}
                 <a href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}"
@@ -33,15 +38,26 @@
           </div>
           {{ end }}
         </div>
-			</div> <!-- end of col-8 -->
-      <!-- sidebar -->
-      {{ partial "sidebar.html" . }}
-      <!-- /sidebar -->
 
       <!-- pagination -->
       <div class="col-12 mt-5">
         {{ template "_internal/pagination.html" . }}
       </div>
+
+      <!-- newsletter -->
+      <div class="col-12">
+        {{ template "partials/newsletter.html" . }}
+      </div>
+			</div> <!-- end of col-8 -->
+
+
+      <!-- sidebar -->
+      {{ partial "sidebar.html" . }}
+      <!-- /sidebar -->
+
+
+
+
   </div>
 </section>
 <!-- /blog post -->

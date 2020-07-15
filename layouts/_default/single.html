@@ -30,18 +30,19 @@
 </section>
 
 <section>
-    <!-- <div class="container"> -->
         <div class="row">
-					<div class="col-lg-1 col-sm-12">
-						{{ partial "sharingoptions.html" . }}
-					</div>
 
-            <div class="col-lg-7 col-sm-10">
-							<!-- <div class="container"> -->
-                <div class="content mb-5 ml-20">
-                    {{ .Content }}
-                </div>
+
+						<div class="col-lg-1 col-sm-12">
+							{{ partial "sharingoptions.html" . }}
+						</div>
+
+							<div class="col-lg-7 col-sm-10">
+									<div class="content mb-5 ml-20">
+											{{ .Content }}
+									</div>
 							<!-- </div> -->
+
                 <!-- Tags -->
                 <div class="widget-new mb-50 ml-20">
                     <h5 class="mb-10">Tagged in</h5>
@@ -53,22 +54,28 @@
                     </ul>
                     {{- end }} {{- end }}
                 </div>
+
                 <!-- related -->
                 <div>
                     {{ partial "related.html" . }}
                 </div>
+
+								<!-- newsletter -->
+								<div class="col-12">
+									{{ template "partials/newsletter.html" . }}
+								</div>
+
                 <!-- comments -->
                 {{ template "_internal/disqus.html" . }}
                 <!-- mathjax-->
                 {{ partial "mathjax.html" . }}
             </div>
+
             <!-- sidebar -->
             {{ partial "sidebar-single.html" . }}
             <!-- /sidebar -->
 
         </div>
-    <!-- </div> -->
 </section>
-</div>
 
 <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button"><i class="ti-angle-up"></i></a>{{ end }}

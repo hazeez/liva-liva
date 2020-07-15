@@ -77,7 +77,7 @@
 				<h6 class="widget-title">Latest Articles</h6>
 					<div class="row">
 						<div class="container">
-							{{ range first 4 (where .Site.RegularPages "Type" "post")}}
+							{{ range first 4 (where .Site.RegularPages "Type" "post")| intersect (where .Site.Pages ".Title" "!=" .Title)}}
 								<div class="latest-articles-list mb-3 post-meta">
                   {{ if not .Params.HideDate }}
                   <span style="font-size: 0.8rem;">{{ .PublishDate.Format "02 January 2006" }}</span>

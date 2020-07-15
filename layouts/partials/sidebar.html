@@ -22,11 +22,11 @@
 		{{ range (where .Site.RegularPages "Type" "featured")}}
 		<!-- <div class="col-md-12"> --> 
 			<article class="media">
-				{{ if .Params.Image }}
-				<div class="recent-post-thumb mr-3 mb-3" style="background-image: url('{{ .Params.Image | absURL }}');"></div>
+				{{ if .Params.Thumbnail }}
+				<div class="recent-post-thumb mr-3 mb-3" style="background-image: url('{{ .Params.Thumbnail | absURL }}');"></div>
 				{{ end }}
 				<div class="media-body">
-					<div class="mb-3 post-meta">
+					<div class="mb-1 post-meta">
 						{{ if not .Params.HideDate }}
             <span style="font-size: 0.8rem;">{{ .PublishDate.Format "02 January 2006" }}</span>
 						{{ end }}

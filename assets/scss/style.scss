@@ -72,6 +72,7 @@ VERSION:	Versoin Number
 
 .tag {
   background: $gray;
+	border-left: 1px solid $primary-color;
   border-radius: 3px 0 0 3px;
   color: #999;
   display: inline-block;
@@ -374,17 +375,17 @@ $box-width: 100px;
 }
 
 .alert.info{
-		border-left: 4px solid $info-color;
+		border-left: 1px solid $border-color;
 		background: lighten($color:$info-color, $amount:60);
 }
 
 .alert.danger{
-		border-left: 4px solid $danger-color;
-		background: lighten($color:$danger-color, $amount:42);
+		border-left: 1px solid $border-color;
+		background: lighten($color:$danger-color, $amount:45);
 }
 
 .alert.warning{
-		border-left: 4px solid $warning-color;
+		border-left: 1px solid $border-color;
 		background: lighten($color:$warning-color, $amount:27);
 }
 
@@ -548,6 +549,31 @@ figcaption > p {
 	display: inline !important;
 	font-size: 0.9rem;
 }
+}
 
+.alert-title{
+	font-family: $primary-font;
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-left: 20px;
+}
 
+.alert-text{
+	// font-size: 1rem;
+}
+
+.alert-main, .content blockquote{
+	border-top: 1px solid $border-color;
+	border-right: 1px solid $border-color;
+	border-bottom: 1px solid $border-color;
+}
+
+.alert.info, .alert.danger, .alert.warning{
+	margin-bottom: 0px !important;
+	// padding-bottom: 0px !important;
+}
+
+.newsletter {
+	padding-top: 0px !important;
+	padding-bottom: 30px !important;
 }

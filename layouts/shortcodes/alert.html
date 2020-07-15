@@ -2,20 +2,27 @@
 <div class="alert-main">
 	<div class="alert {{ .Get 0 }}">
 		{{ $alert_type := .Get 0  }}
+		{{ $alert_title := .Get 1  }}
 
 		{{ if (eq $alert_type  "info" ) }}
-		<span class="ti-info-alt mr-10"></span>
-			<span class="alert-text paragraph">{{ .Inner }}</span>
+		<span class="ti-info-alt mr-10"><span class="alert-title">{{ $alert_title }}</span></span>
+			<br/>
+			<br/>
+		<span class="alert-text paragraph">{{ .Inner | markdownify }}</span>
 		{{ end }}
 
 		{{ if (eq $alert_type  "warning" ) }}
-		<span class="ti-flag mr-10"></span>
-			<span class="alert-text paragraph">{{ .Inner }}</span>
+		<span class="ti-flag mr-10"><span class="alert-title">{{ $alert_title }}</span></span>
+			<br/>
+			<br/>
+			<span class="alert-text paragraph">{{ .Inner | markdownify }}</span>
 		{{ end }}
 
 		{{ if (eq $alert_type  "danger" ) }}
-		<span class="ti-close mr-10"></span>
-			<span class="alert-text paragraph">{{ .Inner }}</span>
+		<span class="ti-close mr-10"><span class="alert-title">{{ $alert_title }}</span></span>
+			<br/>
+			<br/>
+			<span class="alert-text paragraph">{{ .Inner | markdownify }}</span>
 		{{ end }}
 
 	</div>
