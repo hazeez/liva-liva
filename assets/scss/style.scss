@@ -410,9 +410,14 @@ font-size: 1.3rem;
 }
 
 div.fineprint > p {
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 	padding: 10px;
 	background: $gray; 
+	margin-bottom: 0px !important;
+}
+
+div.fineprint {
+	border: 1px solid $border-color;
 }
 
 .image-credit {
